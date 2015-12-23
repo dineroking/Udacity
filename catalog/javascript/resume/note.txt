@@ -1,0 +1,65 @@
+Resume Project
+
+When using the Console of the developer tool in a browser, console.log('string'); will return the string and then it will
+say undefined. That is because console.log() does not create any new data as for example when using document.URL.
+
+append() vs prepend();
+
+append() adds the HTML to the end of the matching selector. prepend() adds the HTML to the beginning of the matching
+selector.
+
+when using prepend() every time some new tag is prepended it goes to the beginning of the parent element. Because of this
+$('div').prepend('html'); <- this html shows second inside the div
+$('div').prepend('html'); <- this html shows first inside the div
+
+toUpperCase()
+
+Strings are object and they have indexes that start at 0. For this reason any particular character can be selected and
+manipulated by using the array brackets [] with the desired index as shown in the example below.
+
+var s = "audacity";
+
+s = s[1].toUpperCase() + s.slice(2);
+
+true || false
+Truthy ( evaluates to true )  = true, non-zero numbers, "strings" ( of at least one character ), objects, arrays, functions
+Falsy ( evaluates to false ) = false, 0, "" ( empty strings ), undefined, null, NaN
+
+slice()
+
+The slice function seperates a string characters and returns the characters specified by the range in the parameters. This
+also works the same for arrays. For this reason slice() is used to copy an old array into a new one.
+
+oldArray = ['string', 'string2'];
+newArray = oldArray.slice(0);
+
+Example of how to turn a string (NeW sTrINg into New STRING)
+
+var name = "AlbERt EINstEiN";
+
+function nameChanger(oldName) {
+    var finalName = oldName;
+    // Your code goes here!
+
+    var spaceIndex = finalName.indexOf(" ");
+
+    finalName = finalName[0].toUpperCase() + finalName.slice(1, spaceIndex).toLowerCase() +
+        " " + finalName.slice(spaceIndex + 1, finalName.length).toUpperCase();
+
+    return finalName;
+}
+
+// Did your code work? The line below will tell you!
+console.log(nameChanger(name));
+
+This results in Albert EINSTEIN
+
+split()
+
+The split() function can take a string ("Ronny Rosabal") and split it into an array for example "Ronny Rosabal".split(" ")
+would result in ["Ronny", "Rosabal]"
+
+join()
+
+The join() function is opposite to split(). It takes an array ["Ronny", "Rosabal"] and join its elements into a single string.
+For example ["Ronny", "Rosabal"].join(" ") would result in "Ronny Rosabal".
