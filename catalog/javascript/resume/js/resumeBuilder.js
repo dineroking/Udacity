@@ -14,19 +14,30 @@
 var bio = {
   'name' : 'Ronny Rosabal',
   'role' : 'Web Developer',
-  'contact' : 'ronnyrosabal@aol.com',
-  'picture' : '',
+  contact : {
+    'phone' : '305.343.8007',
+    'email' : 'ronnyrosabal@aol.com'
+  },
+  'picture' : 'images/fry.jpg',
+  'skills' : ['amazing', 'crazy', 'strong'],
   'message' : 'Hello and welcome to my resume.'
 };
-var formattedContact = HTMLemail.replace('%data%', bio.contact);
-$('#header' ).prepend(formattedContact);
 var formattedRole = HTMLheaderRole.replace( '%data%', bio.role );
 $( '#header' ).prepend( formattedRole );
 var formatterName = HTMLheaderName.replace( '%data%', bio.name );
 $( '#header' ).prepend( formatterName );
-var formattedMessage = HTMLwelcomeMsg.replace('%data', bio.message);
+var formattedMessage = HTMLwelcomeMsg.replace('%data%', bio.message);
+$('#header' ).append(formattedMessage);
+var formattedEmail = HTMLemail.replace('%data%', bio.contact.email);
+var formattedPhone = HTMLmobile.replace('%data%', bio.contact.phone);
+$('#topContacts' ).append(formattedEmail, formattedPhone);
+var formattedPicture = HTMLbioPic.replace('%data%', bio.picture);
+$('#header' ).prepend(formattedPicture);
 
-
-
-$( '#header' ).css( 'color', 'white' );
+var formattedSkills = "";
+for(var i = 0; i < bio.skills.length; i++) {
+  formattedSkills += HTMLskills.replace( '%data%', bio.skills[i]);
+}
+$('#workExperience' ).append(HTMLskillsStart);
+$('#skills' ).append(formattedSkills);
 
