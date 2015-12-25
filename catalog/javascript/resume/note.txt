@@ -63,3 +63,63 @@ join()
 
 The join() function is opposite to split(). It takes an array ["Ronny", "Rosabal"] and join its elements into a single string.
 For example ["Ronny", "Rosabal"].join(" ") would result in "Ronny Rosabal".
+
+replace()
+
+It replaces a string with another string. However, only the first occurrence is changed. If multiple occurrences need to
+be replace than the /g (global) as the example shows below.
+
+var re = /apples/gi;
+var str = 'Apples are round, and apples are juicy.';
+var newstr = str.replace(re, 'oranges');
+console.log(newstr);  // oranges are round, and oranges are juicy.
+
+
+accessing objects properties
+
+var weirdObject = {
+    "property": "Time for an astronomy lesson!",
+    "property1": "Cameron's minor in college was astronomy",
+    "property-2": "The 4 Galilean largest moons of Jupiter are:",
+    "property 3": "Io, Ganymede, Callisto, Europa",
+    "property$": "Saturn's moon Enceladus has liquid water ocean under its icy surface",
+    " property": "The Sun contains 99.87% of the mass of the entire solar system",
+    "property()": "There are 5 dwarf planets in our solar system:",
+    "property[]": "Pluto, Ceres, Eris, Haumea, Makemake",
+    "8property": "Mars has two tiny moons: Phobos and Deimos"
+};
+
+var dotNotation0 = true;
+var bracketNotation0 = true;
+
+// property1
+var dotNotation1 = true;
+var bracketNotation1 = true;
+
+// property-2
+var dotNotation2 = false;
+var bracketNotation2 = true;
+
+// property 3
+var dotNotation3 = false;
+var bracketNotation3 = true;
+
+// property$
+var dotNotation4 = true;
+var bracketNotation4 = true;
+
+// *space*property
+var dotNotation5 = false;//same as first property
+var bracketNotation5 = true;
+
+// property()
+var dotNotation6 = false;
+var bracketNotation6 = true;
+
+// property[]
+var dotNotation7 = false;
+var bracketNotation7 = true;
+
+// 8property
+var dotNotation8 = false;
+var bracketNotation8 = true;
