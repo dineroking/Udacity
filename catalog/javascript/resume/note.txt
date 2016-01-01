@@ -123,3 +123,29 @@ var bracketNotation7 = true;
 // 8property
 var dotNotation8 = false;
 var bracketNotation8 = true;
+
+
+Click Location (jQuery)
+
+$ ( document ).click( function( event ){
+  var x = event.pageX; //holds x coordinates of the click
+  var y = event.pageY; //holds y coordinates of the click
+});
+
+clickLocations = [];// array to hold objects literals with x any y coordinates
+
+function logClicks( x, y ) {
+  clickLocations.push( //adds element to the array holding x and y coordinates
+    {
+      x : x,
+      y : y
+    }
+  );
+  console.log( 'x location: ' + x + '; y location: ' + y );
+}
+
+$( document ).click( function( loc ) {
+  // your code goes here!
+  logClicks(loc.pageX, loc.pageY);
+} );
+

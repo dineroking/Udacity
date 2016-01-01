@@ -95,7 +95,41 @@ var projects = {
   ]
 };
 
+var formattedName = HTMLheaderName.replace( '%data%', bio.name );
+$( "#header" ).append( HTMLheaderName );
+$( '#name' ).append( formattedName );
+if( bio[ 'skills' ].length > 0 ) {
+  $( '#header' ).append( HTMLskillsStart );
+  var formattedSkills = "";
+  /*for( var i = 0; i < bio[ "skills" ].length; i++ ) {
+   formattedSkills += HTMLskills.replace( '%data%', bio[ 'skills' ][ i ] )
+   }*/
+  for( var skill in bio.skills ) {
+    formattedSkills += HTMLskills.replace( '%data%', bio.skills[ skill ] );
+  }
+  $( '#skills' ).append( formattedSkills );
+}
 
+if( Object.keys( work ).length > 0 ) {
+  var formattedEmployer = "";
+  var formattedTitle = "";
+  var formattedWorkDates = "";
+  var formattedWorkLocation = "";
+  var formattedWorkDescription = "";
+  for( var job in work.jobs ) {
+    $( '#workExperience' ).append( HTMLworkStart );
+    formattedEmployer = HTMLworkEmployer.replace( '%data%', work[ "jobs" ][ job ].employer );
+    formattedTitle = HTMLworkTitle.replace( '%data%', work[ "jobs" ][ job ].title );
+    formattedWorkDates = HTMLworkDates.replace( '%data%', work[ "jobs" ][ job ].dates );
+    formattedWorkLocation = HTMLworkLocation.replace( '%data%', work[ "jobs" ][ job ].location );
+    formattedWorkDescription = HTMLworkDescription.replace( '%data%', work[ "jobs" ][ job ].description );
+    $( ".work-entry:last" ).append( formattedEmployer + formattedTitle, formattedWorkDates, formattedWorkLocation, formattedWorkDescription );
+    $( ".work-entry" ).append();
+  }
+}
+
+$( "#main" ).append( internationalizeButton );
+console.log( Object.keys( education ).length );
 //header
 /*var formattedRole = HTMLheaderRole.replace( '%data%', bio.role );
 $( '#header' ).prepend( formattedRole );
