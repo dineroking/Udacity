@@ -79,25 +79,24 @@ var work = {
 };
 
 var projects = {
-  projects : [
+  project : [
     {
       "title" : "unknown",
       "dates" : "present",
       "description" : "I have no idea what I'm doing.",
-      "images" : ["url"]
+      "images" : ["images/fry.jpg" , "images/fry.jpg"]
     },
     {
       "title" : "another project",
       "dates" : "past",
       "description" : "Another project I did.",
-      "images" : ["url"]
+      "images" : ["images/fry.jpg", "images/fry.jpg"]
     }
   ]
 };
 
 var formattedName = HTMLheaderName.replace( '%data%', bio.name );
-$( "#header" ).append( HTMLheaderName );
-$( '#name' ).append( formattedName );
+$( "#header" ).append( formattedName );
 if( bio[ 'skills' ].length > 0 ) {
   $( '#header' ).append( HTMLskillsStart );
   var formattedSkills = "";
@@ -128,7 +127,24 @@ if( Object.keys( work ).length > 0 ) {
   }
 }
 
+projects.display = function(){
+  for(var project in projects.project){
+    $('#projects' ).append(HTMLprojectStart);
+    var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.project[project ].title);
+    var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.project[project ].dates);
+    var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.project[project ].description);
+    var formattedProjectImg = "";
+    for(var img in projects.project[project].images){
+      formattedProjectImg += HTMLprojectImage.replace('%data%', projects.project[project ].images[img]);
+    }
+    $('.project-entry:last' ).append(formattedProjectTitle, formattedProjectDates, formattedProjectDescription, formattedProjectImg);
+  }
+};
+
+projects.display();
+
 $( "#main" ).append( internationalizeButton );
+$("#mapDiv" ).append(googleMap);
 console.log( Object.keys( education ).length );
 //header
 /*var formattedRole = HTMLheaderRole.replace( '%data%', bio.role );
