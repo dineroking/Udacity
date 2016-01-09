@@ -1,0 +1,9 @@
+The parameter "this" is bound to:
+
+- the object found to the left of the dot where the containing the function is called
+
+obj.fn(3, 4);
+
+
+
+ The parameter "this" is NOT bound to:
