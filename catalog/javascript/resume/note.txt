@@ -76,6 +76,8 @@ console.log(newstr);  // oranges are round, and oranges are juicy.
 
 sort()
 
+Using the sort() by itself sorts the array in ascending order. But an anonymous function can be passed as a parameter
+to choose the way the array is sorted. See line 313.
 
 accessing objects properties
 

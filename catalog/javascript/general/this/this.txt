@@ -7,3 +7,49 @@ obj.fn(3, 4);
 
 
  The parameter "this" is NOT bound to:
+
+
+
+
+~~~~EXAMPLES~~~~
+ var fn = function(a , b){
+   console.log( this, a, b );
+ };
+
+ var r ={}, g ={}, b = {};
+ r.method = fn; //adds function fn as a method of the object r
+
+ r.method( g, b );
+
+ results in:
+
+ Object {} Object {} Object {}
+
+
+ "this" is bound to the Object that calls it. In the above case "this" is bound to r Object, but if the function fn is
+ called "fn( g, b );" then "this" is bound to the Window Object because fn is a global function.
+
+ In the case where wanting to bind "this" to a Object that does not have the function as a method. For example if trying
+ to bind "this" inside the fn function to the r Object literal. If r Object literal did not have a fn method, the
+ Function.call() method must be called in order to bind "this" to the r Object as shown below:
+
+ fn.call( r, g, b); -> in this case the r Object passed as a parameter and bound to "this".
+
+
+In the case where the method call is used as a callback to another method than "this" is global, as shown in the next
+example. In this case, because we look to callback() to see if there is a dot to the left and find there isnt one then
+"this" is bound to the global Object. Also, no other parameters are being passed therefore "one" and "two" are bound to
+undefined.
+
+var setTimeout = function(callback, time){
+  waitSomehow(time);
+  callback();
+};
+setTimeout(r.method, 1000);
+
+A way around this if by passing a function that has no parameters and makes a call to the function or method desired inside
+its body as shown next.
+
+setTimeout(function(){
+  r.method(g, b);
+}, 1000);
