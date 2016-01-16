@@ -279,7 +279,7 @@ jQuery.fn = jQuery.prototype = {
   splice: [].splice
 };
 
-// Give the init function the jQuery prototype for later instantiation
+// Give the init function the jQuery prototype.txt for later instantiation
 jQuery.fn.init.prototype = jQuery.fn;
 
 jQuery.extend = jQuery.fn.extend = function() {
@@ -1164,7 +1164,7 @@ function createCache() {
   var keys = [];
 
   function cache( key, value ) {
-    // Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
+    // Use (key + " ") to avoid collision with native prototype.txt properties (see Issue #157)
     if ( keys.push( key += " " ) > Expr.cacheLength ) {
       // Only keep the most recent entries
       delete cache[ keys.shift() ];
@@ -1697,7 +1697,7 @@ Sizzle.attr = function( elem, name ) {
   }
 
   var fn = Expr.attrHandle[ name.toLowerCase() ],
-    // Don't get fooled by Object.prototype properties (jQuery #13807)
+    // Don't get fooled by Object.prototype.txt properties (jQuery #13807)
     val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
       fn( elem, name, !documentIsHTML ) :
       undefined;
@@ -4712,7 +4712,7 @@ jQuery.event = {
           for ( i = 0; i < delegateCount; i++ ) {
             handleObj = handlers[ i ];
 
-            // Don't conflict with Object.prototype properties (#13203)
+            // Don't conflict with Object.prototype.txt properties (#13203)
             sel = handleObj.selector + " ";
 
             if ( matches[ sel ] === undefined ) {

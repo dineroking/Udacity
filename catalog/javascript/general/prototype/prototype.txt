@@ -1,0 +1,19 @@
+console.log("gold.a:");
+console.log(gold.a);
+console.log("gold.z:");
+console.log(gold.z);
+//copies gold object into the blue object
+var blue = $.extend({}, gold);
+console.log("blue.a:");
+console.log(blue.a);
+
+In the case above, gold object is copied into the blue object but only once when the code is executed. After that any
+changes made to either object is not longer copied.
+
+The following links rose object to the gold object so at any time a property is added or changed in the gold object
+it is updated in the rose object.
+
+var rose = Object.create(gold);
+
+
+
